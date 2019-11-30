@@ -2,10 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -15,6 +18,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int[] ordre = new int[0];
+
+    ImageButton menu_button ;
 
 
     String[][] mots = {{"人","ひと","hito","personne"},
@@ -227,6 +232,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.button);
         button.getBackground().setAlpha(0);
+
+        menu_button = (ImageButton) findViewById(R.id.main_menu_button);
     }
 
     int traduc=0;
@@ -252,6 +259,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+    }
+
+    public void main_menu_button_click(View v){
+        Intent start_menu = new Intent(this, MenuActivity.class);
+        startActivity(start_menu);
     }
 
     public void buttonClick(View v) {
