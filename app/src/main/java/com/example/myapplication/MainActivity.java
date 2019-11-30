@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     int[] ordre = new int[0];
 
-    //testtesttest
+    //ファブリスは馬鹿です
 
     String[][] mots = {{"人","ひと","hito","personne"},
             {"男","おとこ","otoko","homme"},
