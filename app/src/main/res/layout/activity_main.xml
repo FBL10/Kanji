@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/symbole"
+        android:layout_width="347dp"
+        android:layout_height="282dp"
+        android:layout_marginTop="75dp"
+        android:gravity="center"
+        android:textSize="200sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="395dp"
+        android:layout_height="736dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:onClick="buttonClick"
+        android:textColor="#00020000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/prononciation"
+        android:layout_width="239dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Bonjour"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/symbole" />
+
+    <TextView
+        android:id="@+id/traduction"
+        android:layout_width="253dp"
+        android:layout_height="201dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Cliquez pour commencer"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/prononciation"
+        app:layout_constraintVertical_bias="0.278"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="67dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:onClick="switch1"
+        app:layout_constraintBottom_toBottomOf="@+id/prononciation"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/symbole" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="switch2"
+        app:layout_constraintBottom_toTopOf="@+id/symbole"
+        app:layout_constraintStart_toStartOf="@+id/symbole"
+        app:layout_constraintTop_toTopOf="@+id/button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
