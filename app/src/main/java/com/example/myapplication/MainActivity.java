@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+// TODO : donner les mots au menu, les renvoyer ou changer selon la section, implementer back_button
+
 //ignored warning : hard-coded string will not be translated
 @SuppressLint("SetTextI18n")
 
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     String[][] mots;
 
     ImageButton menu_button ;
+
+    int nombre_traduction = 0;
+    int romaji = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +39,31 @@ public class MainActivity extends AppCompatActivity {
         mots = Mots.getMots();
 
         // bouton du menu principal
-        menu_button = (ImageButton) findViewById(R.id.main_menu_button);
+        menu_button = (ImageButton) findViewById(R.id.menu_button);
 
 
         TextView text_symbole = (TextView)findViewById(R.id.symbole);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            int value = extras.getInt("number");
-            text_symbole.setText(Integer.toString(value));
+
+            boolean trad = extras.getBoolean("trad_state");
+            boolean pro = extras.getBoolean("pro_state");
+
+            if (trad){
+                nombre_traduction = 1;
+            }
+            else{
+                nombre_traduction = 0;
+            }
+            if (pro){
+                romaji = 1;
+            }
+            else{
+                romaji = 0;
+            }
         }
     }
-
-    int nombre_traduction = 0;
-    int romaji = 0;
 
     Boolean reponse = false; // indique si l'utilisateur voit la réponse
 
@@ -78,11 +94,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // TODO : garder l'état des activités quittées
 
     // lance l'activité MenuActivity
     public void main_menu_button_click(View v){
         Intent start_menu = new Intent(this, MenuActivity.class);
+        start_menu.putExtra("pro_state",romaji);
+        start_menu.putExtra("trad_state",nombre_traduction);
         startActivity(start_menu);
     }
 
