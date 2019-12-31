@@ -41,15 +41,33 @@ public class MenuActivity extends AppCompatActivity {
     // lance l'activité MainActivity
     public void start_button_click(View v) {
 
+        int[] ordre;
+        int iterateur_mots;
+        boolean reponse;
+
         Switch pro_switch =  findViewById(R.id.prononciation_switch);
         Switch trad_switch =  findViewById(R.id.traduction_switch);
 
         boolean pro_state = pro_switch.isChecked();
         boolean trad_state = trad_switch.isChecked();
 
+        Bundle extras = getIntent().getExtras();
+
         Intent start_main = new Intent(this, MainActivity.class);
+
         start_main.putExtra("pro_state",pro_state);
         start_main.putExtra("trad_state",trad_state);
+
+        if (extras != null) {
+            ordre = extras.getIntArray("ordre");
+            iterateur_mots = extras.getInt("iterateur_mots");
+            reponse = extras.getBoolean("reponse");
+
+            start_main.putExtra("iterateur_mots", iterateur_mots);
+            start_main.putExtra("ordre", ordre);
+            start_main.putExtra("reponse", reponse);
+        }
+
         startActivity(start_main);
     }
 
